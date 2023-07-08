@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © PHPDigital, Inc. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="social_account_bind_after">
+        <observer name="social_account_bind_after" instance="AlbertMage\Search\Observer\SocialAccountBindAfterObserver"/>
+    </event>
+</config>

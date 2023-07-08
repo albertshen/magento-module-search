@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © PHPDigital, Inc. All rights reserved.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="search_query_history" resource="default" engine="innodb" comment="Search Query History">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="query_text" unsigned="true" nullable="true" identity="false" length="255"
+                comment="Query Text"/>
+        <column xsi:type="smallint" name="store_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Store ID"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="true" identity="false"
+                comment="Customer ID"/>
+        <column xsi:type="int" name="guest_id" unsigned="true" nullable="true" identity="false"
+                comment="Guest ID"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="SEARCH_QUERY_HISTORY_STORE_ID_STORE_STORE_ID" table="search_query_history" column="store_id" referenceTable="store" referenceColumn="store_id" onDelete="CASCADE"/>
+        <index referenceId="SEARCH_QUERY_HISTORY_STORE_ID" indexType="btree">
+            <column name="store_id"/>
+        </index>
+        <index referenceId="SEARCH_QUERY_HISTORY_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+        <index referenceId="SEARCH_QUERY_HISTORY_GUEST_ID" indexType="btree">
+            <column name="guest_id"/>
+        </index>
+    </table>
+</schema>

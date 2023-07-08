@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V2/search/mine/query" method="GET">
+        <service class="AlbertMage\Search\Api\SearchQueryManagementInterface" method="getMineSearchQuery"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V2/search/guest/query" method="GET">
+        <service class="AlbertMage\Search\Api\SearchQueryManagementInterface" method="getGuestSearchQuery"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V2/search/mine/query/create" method="POST">
+        <service class="AlbertMage\Search\Api\SearchQueryManagementInterface" method="createMineSearchQuery"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V2/search/guest/query/create" method="POST">
+        <service class="AlbertMage\Search\Api\SearchQueryManagementInterface" method="createGuestSearchQuery"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V2/search/mine/query/clean" method="GET">
+        <service class="AlbertMage\Search\Api\SearchQueryManagementInterface" method="cleanCustomerSearchQuery"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V2/search/guest/query/clean" method="GET">
+        <service class="AlbertMage\Search\Api\SearchQueryManagementInterface" method="cleanGuestSearchQuery"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V2/search/query/recommendation" method="GET">
+        <service class="AlbertMage\Search\Api\SearchQueryManagementInterface" method="getRecommendationSearchQuery"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>
