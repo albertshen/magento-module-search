@@ -1,5 +1,5 @@
 {
-    "name": "albertshen/magento-module-notification",
+    "name": "albertshen/magento-module-search",
     "description": "N/A",
     "type": "magento2-module",
     "license": [
@@ -21,7 +21,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "AlbertMage\\Notification\\": ""
+            "AlbertMage\\Search\\": ""
         }
     }
 }
