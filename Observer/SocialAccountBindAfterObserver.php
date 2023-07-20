@@ -4,12 +4,11 @@
  */
 declare(strict_types=1);
 
-namespace AlbertMage\Quote\Observer;
+namespace AlbertMage\Search\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use AlbertMage\Search\Api\Data\SearchQueryInterfaceFactory;
-use AlbertMage\Quote\Api\CartRepositoryInterface;
 
 /**
  * 
@@ -26,9 +25,9 @@ class SocialAccountBindAfterObserver implements ObserverInterface
      * @param SearchQueryInterfaceFactory $searchQueryInterfaceFactory
      */
     public function __construct(
-        searchQueryInterfaceFactory $searchQueryInterfaceFactory
+        SearchQueryInterfaceFactory $searchQueryInterfaceFactory
     ) {
-        $this->$searchQueryInterfaceFactory = $$searchQueryInterfaceFactory;
+        $this->searchQueryInterfaceFactory = $searchQueryInterfaceFactory;
     }
 
     /**
@@ -36,16 +35,16 @@ class SocialAccountBindAfterObserver implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        $socialAccount = $observer->getSocialAccount();
+        // $socialAccount = $observer->getSocialAccount();
 
-        $searchQuery = $this->$searchQueryInterfaceFactory->create()->load($socialAccount->getId(), 'guest_id');
+        // $searchQuery = $this->$searchQueryInterfaceFactory->create()->load($socialAccount->getId(), 'guest_id');
 
-        if ($searchQuery->getId()) {
+        // if ($searchQuery->getId()) {
             
-            // $searchQuery->setCustomerId($socialAccount->getCustomer()->getId());
+        //     // $searchQuery->setCustomerId($socialAccount->getCustomer()->getId());
             
-            // $searchQuery->save();
-        }
+        //     // $searchQuery->save();
+        // }
         
     }
 }

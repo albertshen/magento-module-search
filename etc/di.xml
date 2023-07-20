@@ -9,5 +9,4 @@
     <preference for="AlbertMage\Search\Api\SearchQueryRepositoryInterface" type="AlbertMage\Search\Model\SearchQueryRepository"/>
     <preference for="AlbertMage\Search\Api\Data\SearchQuerySearchResultsInterface" type="AlbertMage\Search\Model\SearchQuerySearchResults"/>
     <preference for="AlbertMage\Search\Api\Data\SearchQueryInterface" type="AlbertMage\Search\Model\SearchQuery"/>
-
 </config>

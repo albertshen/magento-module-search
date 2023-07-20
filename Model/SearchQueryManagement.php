@@ -5,7 +5,7 @@
 namespace AlbertMage\Search\Model;
 
 use Magento\Store\Model\StoreManagerInterface;
-use Magento\Search\Model\ResourceModel\Query\CollectionFactory as RecommendationQueryCollectionFactoryy;
+use Magento\Search\Model\ResourceModel\Query\CollectionFactory as RecommendationQueryCollectionFactory;
 use AlbertMage\Search\Model\SearchQueryFactory;
 use AlbertMage\Search\Model\ResourceModel\SearchQuery\CollectionFactory as SearchQueryCollectionFactory;
 use AlbertMage\Customer\Api\Data\SocialAccountInterfaceFactory;
@@ -26,9 +26,9 @@ class SearchQueryManagement implements \AlbertMage\Search\Api\SearchQueryManagem
     protected $storeManager;
 
     /**
-     * @var RecommendationQueryCollectionFactoryy
+     * @var RecommendationQueryCollectionFactory
      */
-    protected $recommendationQueryCollectionFactoryy;
+    protected $recommendationQueryCollectionFactory;
 
     /**
      * @var SearchQueryFactory
@@ -52,7 +52,7 @@ class SearchQueryManagement implements \AlbertMage\Search\Api\SearchQueryManagem
 
     /**
      * @param StoreManagerInterface $storeManager
-     * @param RecommendationQueryCollectionFactoryy $recommendationQueryCollectionFactoryy
+     * @param RecommendationQueryCollectionFactory $recommendationQueryCollectionFactory
      * @param SearchQueryFactory $searchQueryFactory
      * @param SearchQueryCollectionFactory $searchQueryCollectionFactory
      * @param SocialAccountInterfaceFactory $socialAccountInterfaceFactory
@@ -60,14 +60,14 @@ class SearchQueryManagement implements \AlbertMage\Search\Api\SearchQueryManagem
      */
     public function __construct(
         StoreManagerInterface $storeManager,
-        RecommendationQueryCollectionFactoryy $recommendationQueryCollectionFactoryy,
+        RecommendationQueryCollectionFactory $recommendationQueryCollectionFactory,
         SearchQueryFactory $searchQueryFactory,
         SearchQueryCollectionFactory $searchQueryCollectionFactory,
         SocialAccountInterfaceFactory $socialAccountInterfaceFactory,
         SearchQueryRepository $searchQueryRepository
     ) {
         $this->storeManager = $storeManager;
-        $this->recommendationQueryCollectionFactoryy = $recommendationQueryCollectionFactoryy;
+        $this->recommendationQueryCollectionFactory = $recommendationQueryCollectionFactory;
         $this->searchQueryFactory = $searchQueryFactory;
         $this->searchQueryCollectionFactory = $searchQueryCollectionFactory;
         $this->socialAccountInterfaceFactory = $socialAccountInterfaceFactory;
@@ -203,7 +203,7 @@ class SearchQueryManagement implements \AlbertMage\Search\Api\SearchQueryManagem
      */
     public function getRecommendationSearchQuery()
     {
-        $collection = $this->recommendationQueryCollectionFactoryy->create();
+        $collection = $this->recommendationQueryCollectionFactory->create();
         $items = [];
         foreach ($collection->getItems() as $item) {
             $items[] = $item->getQueryText();
